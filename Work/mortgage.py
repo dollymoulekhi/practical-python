@@ -11,21 +11,31 @@
 # number of months required.
 # When you run the new program, it should report a total payment of 929,965.62 over 342 months.
 
+# Exercise 1.9: Making an Extra Payment Calculator
+# Modify the program so that extra payment information can be more generally handled. 
+# Make it so that the user can set these variables:
+import pdb
+extra_payment_start_month = 1
+extra_payment_end_month = 12
+extra_payment = 1000
 total_pay=500000
 monthly_pay=2684.11
 i=0
 total_payed=0
 while total_pay> 0:
+    # pdb.set_trace()
     i=i+1
-    if i<=12:
-        monthly_pay=3684.11
-    elif i>12:
-       monthly_pay= 2684.11   
-    intrest_pay=total_pay*5/1200
-    remaining_mon=monthly_pay - intrest_pay
-    total_pay=total_pay-remaining_mon
-    total_payed=monthly_pay*i
-
-total_payed=3684.11*12 +(2684.11)*(i-12)
+    if i>=extra_payment_start_month and i<=extra_payment_end_month:
+        changed_pay=monthly_pay+extra_payment
+        intrest_pay=total_pay*5/1200
+        remaining_mon=changed_pay - intrest_pay
+        total_pay=total_pay-remaining_mon
+        total_payed=changed_pay+total_payed
+    else:
+       monthly_pay= monthly_pay
+       intrest_pay=total_pay*5/1200
+       remaining_mon=monthly_pay - intrest_pay
+       total_pay=total_pay-remaining_mon
+       total_payed=monthly_pay+total_payed
 print(i)
 print(total_payed)
