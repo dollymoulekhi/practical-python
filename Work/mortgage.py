@@ -19,6 +19,7 @@
 # Modify the program to print out a table showing the month, 
 # total paid so far, and the remaining principal. The output should look something like this:
 
+
 import pdb
 extra_payment_start_month = 1
 extra_payment_end_month = 12
@@ -28,21 +29,24 @@ monthly_pay=2684.11
 i=0
 total_payed=0
 while total_pay> 0:
+    if total_pay< monthly_pay:
+        break
+    else: 
     # pdb.set_trace()
-    i=i+1
-    if i>=extra_payment_start_month and i<=extra_payment_end_month:
-        changed_pay=monthly_pay+extra_payment
-        intrest_pay=total_pay*5/1200
-        remaining_mon=changed_pay - intrest_pay
-        total_pay=total_pay-remaining_mon
-        total_payed=changed_pay+total_payed
-        print(i,total_payed,total_pay )
-    else:
-       monthly_pay= monthly_pay
-       intrest_pay=total_pay*5/1200
-       remaining_mon=monthly_pay - intrest_pay
-       total_pay=total_pay-remaining_mon
-       total_payed=monthly_pay+total_payed
-       print(i,total_payed,total_pay )
+        i=i+1
+        if i>=extra_payment_start_month and i<=extra_payment_end_month:
+            changed_pay=monthly_pay+extra_payment
+            intrest_pay=total_pay*5/1200
+            remaining_mon=changed_pay - intrest_pay
+            total_pay=total_pay-remaining_mon
+            total_payed=changed_pay+total_payed
+            print(i,total_payed,total_pay )
+        else:
+            monthly_pay= monthly_pay
+            intrest_pay=total_pay*5/1200
+            remaining_mon=monthly_pay - intrest_pay
+            total_pay=total_pay-remaining_mon
+            total_payed=monthly_pay+total_payed
+            print(i,total_payed,total_pay )
 # print(i)
 # print(total_payed)
