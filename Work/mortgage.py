@@ -1,33 +1,20 @@
 # mortgage.py
-#
-# Exercise 1.7
-extra_payment_start_month = 61
-extra_payment_end_month = 108
-extra_payment = 1000
+# Dave has decided to take out a 30-year fixed rate mortgage of $500,000 with Guido’s Mortgage, 
+# Stock Investment, and Bitcoin trading corporation. 
+# The interest rate is 5% and the monthly payment is $2684.11.
 
+# Here is a program that calculates the total amount that Dave will have to pay over the life of the mortgage:
 
-principal = 500000.0
-rate = 0.05
-payment = 2684.11
-total_paid = 0.0
-month=0
-
-while principal > 0:
-    if month>=61 and month<=108:
-        principal = principal * (1+rate/12) - payment - extra_payment 
-        total_paid = total_paid + payment
-        month=month+1
-        print(month,total_paid,principal)
-    elif principal>=payment:
-        principal = principal * (1+rate/12) - payment
-        total_paid = total_paid + payment
-        month=month+1
-        print(month,total_paid,principal)
-
-    elif principal<payment:
-        principal = principal - principal 
-        total_paid = total_paid + principal
-        month=month+1
-        print(month,total_paid,principal)
-        break
+total_pay=500000
+monthly_pay=2684.11
+i=0
+total_payed=0
+while total_pay> 0:
+    i=i+1
+    
+    intrest_pay=total_pay*5/1200
+    remaining_mon=monthly_pay - intrest_pay
+    total_pay=total_pay-remaining_mon
+    total_payed=monthly_pay*i
+print(total_payed)
 
